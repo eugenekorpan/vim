@@ -2,7 +2,7 @@ snippet y
 	:yields: ${1:arguments}
 
 snippet req
-	require "${1}"${2}
+	require '${1}'${2}
 snippet #
 	# => 
 snippet end
@@ -267,7 +267,8 @@ snippet rt
 snippet rp
 	render :partial => 'form.html'
 # --------------------------------------------------  RSPEC  ----------------------------------------------------------
-
+snippet expect
+	expect(${1:action}).to eql(${2:value})
 snippet rsrt
 	response.should render_template(:${1:index})
 snippet rsrdt
@@ -276,24 +277,28 @@ snippet ass
 	assigns(:${1:user})${2}
 snippet des
 	describe ${1:User} do
-	  before do
-			${2}
-		end
-
-		${3}
+		${2}
 	end
+snippet bd
+	before do
+		${1}
+	end
+snippet csu
+	controller.stub(:current_user).and_return(user)
+snippet stub
+	${1:object}.stab(:${2:method}).and_return(${3:value})
 snippet it
-	it "should ${1:test something}" do
+	it 'should ${1:test something}' do
 		${2:test body}
 	end
 snippet let
-	let(:${1:user}) {Factory.create(:${2:user})}
+	let(:${1:user}) { FactoryGirl.create(:${2:user}) }${3}
 snippet Fc
-	Factory.create(:${1:user})${2}
+	FactoryGirl.create(:${1:user})${2}
 snippet Fb
-	Factory.build(:${1:user})${2}
+	FactoryGirl.build(:${1:user})${2}
 snippet Fd
-	Factory.define :${1:user} do |${2:u}|
+	FactoryGirl.define :${1:user} do |${2:u}|
 		${3}
 	end
 snippet rsbs

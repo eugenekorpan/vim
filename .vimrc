@@ -25,6 +25,8 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-less'
 Bundle 'slim-template/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-haml'
 
 
 filetype plugin indent on     " required!
