@@ -1,35 +1,43 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Automatic installation VimPlug
+" Place the following code before plug#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-Bundle 'vundle'
-Bundle 'IndentAnything'
-Bundle 'Tabular'
-Bundle 'AutoClose'
-Bundle 'corntrace/bufexplorer'
-Bundle 'wincent/Command-T'
-Bundle 'comments.vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'grep.vim'
-Bundle 'tsaleh/vim-matchit'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'tablistlite.vim'
-Bundle 'taglist.vim'
-Bundle 'YankRing.vim'
-Bundle 'zoom.vim'
-Bundle 'msanders/snipmate.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-less'
-Bundle 'slim-template/vim-slim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-haml'
+call plug#begin('~/.vim/plugged')
 
+  Plug 'vim-scripts/IndentAnything'
+  Plug 'vim-scripts/Tabular'
+  Plug 'vim-scripts/AutoClose'
+  Plug 'corntrace/bufexplorer'
+  Plug 'vim-scripts/comments.vim'
+  Plug 'tpope/vim-endwise'
+  Plug 'vim-scripts/grep.vim'
+  Plug 'https://github.com/adelarsq/vim-matchit'
+  Plug 'tpope/vim-ragtag'
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-surround'
+  Plug 'vim-scripts/tablistlite.vim'
+  Plug 'vim-scripts/taglist.vim'
+  Plug 'vim-scripts/YankRing.vim'
+  Plug 'vim-scripts/zoom.vim'
+  Plug 'msanders/snipmate.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'vim-scripts/vim-less'
+  Plug 'slim-template/vim-slim'
+  Plug 'kchmck/vim-coffee-script'
+  Plug 'tpope/vim-haml'
 
-filetype plugin indent on     " required!
+  " A command-line fuzzy finder
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+
+call plug#end()
 
 "END OF BUNDLE STAFF   
 
@@ -93,18 +101,13 @@ set novisualbell
 :ab teh the
 " end of the autocorrections
 
-" FuzzyFinder plugin settings
-:map <A-S-i> :FuzzyFinderTextMate<cr>
-" fuzzyfinder refresh
-:map <F5> :ruby finder.rescan!<cr>
-
 " CommandT plugin settings
 set wildignore+=*.sql,*.log,*.git
-:map <A-S-o> :CommandT<cr>
-let g:CommandTCursorRightMap=['<C-r>']
-let g:CommandTAcceptSelectionTabMap=['<C-l>']
-let g:CommandTMatchWindowAtTop=1
-map <F9> :CommandTFlush<cr>
+:map <A-S-o> :FZF<cr>
+let g:fzf_action = {
+  \ 'ctrl-l': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " YangRing plugin settings
 nnoremap <silent> <F11> :YRShow<CR>
