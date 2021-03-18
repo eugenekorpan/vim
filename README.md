@@ -1,4 +1,5 @@
-vundle-vim
+install Vundle
+https://github.com/VundleVim/Vundle.vim
 
 ln -nfs ~/.vim/.vimrc ~/.vimrc
 

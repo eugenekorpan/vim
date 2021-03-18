@@ -9,35 +9,37 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+set rtp+=~/.vim/bundle/Vundle.vim
 
-  Plug 'vim-scripts/IndentAnything'
-  Plug 'vim-scripts/Tabular'
-  Plug 'vim-scripts/AutoClose'
-  Plug 'corntrace/bufexplorer'
-  Plug 'vim-scripts/comments.vim'
-  Plug 'tpope/vim-endwise'
-  Plug 'vim-scripts/grep.vim'
-  Plug 'https://github.com/adelarsq/vim-matchit'
-  Plug 'tpope/vim-ragtag'
-  Plug 'tpope/vim-rails'
-  Plug 'tpope/vim-surround'
-  Plug 'vim-scripts/tablistlite.vim'
-  Plug 'vim-scripts/taglist.vim'
-  Plug 'vim-scripts/YankRing.vim'
-  Plug 'vim-scripts/zoom.vim'
-  Plug 'msanders/snipmate.vim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'vim-scripts/vim-less'
-  Plug 'slim-template/vim-slim'
-  Plug 'kchmck/vim-coffee-script'
-  Plug 'tpope/vim-haml'
+call vundle#begin()
+
+  Plugin 'vim-scripts/IndentAnything'
+  Plugin 'vim-scripts/Tabular'
+  Plugin 'vim-scripts/AutoClose'
+  Plugin 'corntrace/bufexplorer'
+  Plugin 'vim-scripts/comments.vim'
+  Plugin 'tpope/vim-endwise'
+  Plugin 'vim-scripts/grep.vim'
+  Plugin 'https://github.com/adelarsq/vim-matchit'
+  Plugin 'tpope/vim-ragtag'
+  Plugin 'tpope/vim-rails'
+  Plugin 'tpope/vim-surround'
+  Plugin 'vim-scripts/tablistlite.vim'
+  Plugin 'vim-scripts/taglist.vim'
+  Plugin 'vim-scripts/YankRing.vim'
+  Plugin 'vim-scripts/zoom.vim'
+  Plugin 'msanders/snipmate.vim'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'vim-scripts/vim-less'
+  Plugin 'slim-template/vim-slim'
+  Plugin 'kchmck/vim-coffee-script'
+  Plugin 'tpope/vim-haml'
 
   " A command-line fuzzy finder
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
+  Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plugin 'junegunn/fzf.vim'
 
-call plug#end()
+call vundle#end()
 
 "END OF BUNDLE STAFF   
 
